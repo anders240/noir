@@ -97,7 +97,7 @@
     #versionNum {
       position: absolute;
       color: #ddd;
-      top: 695px;
+      bottom: 10px;
       left: 12px;
       font: 12px "Lucida Console", monospace;
       cursor: default;
@@ -219,7 +219,7 @@
     <input id="noirMainInput">
     <button id="websiteButton" onclick="inputWebsite()"><img src="https://codehs.com/uploads/ff38ed25623c3af42f9a613d7cbaf8e6"></button>
   </div>
-  <span id="versionNum">v1.3</span>
+  <span id="versionNum">v2.1</span>
   <iframe id="display"></iframe>
   <button id="backButton" onclick="back()">Back</button>
   <div id="clickBox">
@@ -422,8 +422,8 @@
   let animateBackground = true;
   let animationFrameId;
 
-  const windowHeight = 715;
-  const windowWidth = window.innerWidth;
+  let windowHeight = window.innerHeight;
+  let windowWidth = window.innerWidth;
 
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
@@ -501,6 +501,8 @@
   function reset() {
     createButtons();
     cancelAnimationFrame(animationFrameId);
+    windowWidth = window.innerWidth;
+    windowHeight = window.innerHeight;
     canvas.width = windowWidth;
     canvas.height = windowHeight;
     dots.length = 0;
